@@ -121,6 +121,15 @@ export function initEditableLinkDefaults() {
 }
 
 export function getEditablePlainText(element: HTMLElement) {
+  if (element.dataset.editable === "intro.text") {
+    return element.innerText
+      .replace(/\r\n/g, "\n")
+      .replace(/\u00a0/g, " ")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
   const words = element.querySelectorAll<HTMLElement>(".scroll-word");
 
   if (words.length > 0) {

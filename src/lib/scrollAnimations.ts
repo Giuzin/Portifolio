@@ -85,7 +85,9 @@ function getScrollTriggerBounds(element: HTMLElement) {
 }
 
 function initStickyTextScroll() {
-  const elements = gsap.utils.toArray<HTMLElement>(TEXT_SELECTORS.join(","));
+  const elements = gsap
+    .utils.toArray<HTMLElement>(TEXT_SELECTORS.join(","))
+    .filter((element) => element.dataset.editable !== "intro.text");
 
   elements.forEach((element) => {
     const words = splitTextIntoWords(element);
@@ -121,6 +123,17 @@ function initStickyTextScroll() {
   });
 }
 
+function initIntroAnimation() {
+  const intro = document.querySelector<HTMLElement>('[data-editable="intro.text"]');
+  if (!intro) return;
+
+  gsap.fromTo(
+    intro,
+    { y: 36, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 1.1, delay: 0.15, ease: "power3.out" },
+  );
+}
+
 export function initScrollAnimations() {
   if (prefersReducedMotion()) return;
 
@@ -133,6 +146,7 @@ export function initScrollAnimations() {
     });
 
     initStickyTextScroll();
+    initIntroAnimation();
 
     gsap.utils.toArray<HTMLElement>("main section article").forEach((article) => {
       const media = article.querySelector<HTMLElement>("[data-portfolio-media]");

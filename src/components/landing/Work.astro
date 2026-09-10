@@ -7,7 +7,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import { workItems } from "@/data/portfolio";
 import { getContent } from "@/lib/getContent";
 
-const workEyebrowDefault = "Trabalhos recentes Sua experiência";
+const workEyebrowDefault = "Trabalhos recentes. Sua experiência";
 ---
 
 <section class="scroll-mt-32" id="work">
@@ -28,7 +28,7 @@ const workEyebrowDefault = "Trabalhos recentes Sua experiência";
         class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
         data-editable="sections.work.title"
       >
-        {getContent("sections.work.title", "Trabalho")}
+        {getContent("sections.work.title", "Trabalhos")}
       </Text>
     </div>
 
