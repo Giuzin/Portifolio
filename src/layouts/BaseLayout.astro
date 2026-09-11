@@ -16,6 +16,19 @@ import ApplyContentOverrides from "@/components/global/ApplyContentOverrides.ast
 <html lang="pt-BR" class="scroll-smooth">
   <head>
     <BaseHead />
+    <script is:inline>
+      (() => {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : prefersDark
+            ? "dark"
+            : "light";
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <script is:inline define:vars={{ contentOverrides }}>
       window.__CONTENT_OVERRIDES__ = contentOverrides;
     </script>

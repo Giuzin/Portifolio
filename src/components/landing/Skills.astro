@@ -1,0 +1,67 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { getContent } from "@/lib/getContent";
+
+const skills = [
+  {
+    key: "web",
+    title: "Desenvolvimento web",
+    items: "React • Angular • TypeScript • JavaScript • HTML • CSS",
+  },
+  {
+    key: "backend",
+    title: "Back-end e dados",
+    items: "Python • SQL • APIs • Integração com bancos de dados",
+  },
+  {
+    key: "embedded",
+    title: "Sistemas embarcados",
+    items: "C/C++ • ESP32 • ESP8266 • Telemetria • Firmware",
+  },
+  {
+    key: "practice",
+    title: "Áreas de atuação",
+    items: "SaaS • ERP • Sistemas legados • Integrações • Automação",
+  },
+  {
+    key: "languages",
+    title: "Idiomas",
+    items: "Português — nativo • Inglês — leitura e escrita técnica",
+  },
+];
+---
+
+<section class="scroll-mt-32" id="skills">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <div class="grid grid-cols-1 items-start lg:grid-cols-4">
+      <div class="lg:col-start-2">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          Competências técnicas
+        </Text>
+      </div>
+      <Text
+        tag="h2"
+        variant="textXL"
+        class="font-semibold leading-snug tracking-tighter text-base-900 dark:text-white lg:col-span-2"
+      >
+        Ferramentas e áreas de atuação
+      </Text>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-0 border-t border-base-200 dark:border-base-800 lg:grid-cols-2">
+      {
+        skills.map((skill) => (
+          <article class="border-b border-base-200 py-8 dark:border-base-800 lg:px-6 lg:first:pl-0 lg:nth-child(odd):pl-0 lg:nth-child(even):pr-0">
+            <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+              {skill.title}
+            </Text>
+            <Text tag="p" variant="textSM" class="mt-3 text-base-600 dark:text-base-300">
+              {skill.items}
+            </Text>
+          </article>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

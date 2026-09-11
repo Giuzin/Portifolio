@@ -6,17 +6,19 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import EditableLink from "@/components/global/EditableLink.astro";
 import { getContent } from "@/lib/getContent";
+import ThemeToggle from "@/components/global/ThemeToggle";
 
 const links = [
   { href: "#work", text: "Trabalho" },
   { href: "#projects", text: "Projetos" },
+  { href: "#skills", text: "Competências" },
   { href: "#education", text: "Educação" },
 ];
 ---
 
 <nav class="bg-white dark:bg-base-950 fixed top-0 z-10 w-full">
   <Wrapper variant="standard" class="py-2">
-    <div class="grid grid-cols-3 lg:grid-cols-4 items-start">
+    <div class="grid grid-cols-3 lg:grid-cols-5 items-start">
       <a href="/" class="group -mt-1 flex">
         <Logo
           class="text-base-600 dark:text-base-300 text-xs tracking-tight font-base-900 transition-colors group-hover:text-accent-700 dark:group-hover:text-accent-400"
@@ -51,6 +53,7 @@ const links = [
       >
         {getContent("nav.contact", "Contato")}
       </EditableLink>
+      <ThemeToggle client:load />
     </div>
   </Wrapper>
 </nav>

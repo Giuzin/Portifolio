@@ -25,27 +25,27 @@ export type PortfolioCase = {
 };
 
 const defaultDetail = (label: string): CaseDetail => ({
-  summary: `Escreva aqui um resumo do ${label}. Explique o contexto, o desafio e o impacto final.`,
+  summary: `Desenvolvimento de uma solução de software com foco em integração, confiabilidade e evolução contínua do produto ${label}.`,
   meta: [
-    { label: "Papel", value: "Seu papel no projeto" },
-    { label: "Stack", value: "Ferramentas e tecnologias usadas" },
-    { label: "Duração", value: "Período ou tempo de execução" },
+    { label: "Papel", value: "Desenvolvedor Full Stack" },
+    { label: "Stack", value: "React | TypeScript | APIs | C/C++" },
+    { label: "Período", value: "Projeto em andamento" },
   ],
   blocks: [
     {
       heading: "Contexto",
-      text: "Descreva o cenário, o cliente e o problema que precisava ser resolvido.",
-      aside: "Nota lateral sobre o contexto, restrições ou objetivo principal do case.",
+      text: "Solução criada para responder a uma necessidade real de negócio, conectando software, dados e integrações.",
+      aside: "Contexto, objetivos e restrições considerados durante o desenvolvimento.",
     },
     {
       heading: "Processo",
-      text: "Explique sua abordagem, decisões importantes e como o trabalho foi conduzido.",
-      aside: "Detalhe uma decisão, método ou aprendizado relevante durante o processo.",
+      text: "O trabalho combinou desenvolvimento de aplicações, integração de APIs, dados e evolução incremental do produto.",
+      aside: "Decisões técnicas orientadas por estabilidade, manutenção e experiência de uso.",
     },
     {
       heading: "Resultado",
-      text: "Compartilhe os resultados, aprendizados e o que esse case representa no seu portfólio.",
-      aside: "Métrica, feedback ou impacto final que você queira destacar.",
+      text: "Entrega de uma solução mais integrada, confiável e preparada para novas funcionalidades.",
+      aside: "Impacto, aprendizados e próximos caminhos de evolução do projeto.",
     },
   ],
 });
@@ -53,45 +53,52 @@ const defaultDetail = (label: string): CaseDetail => ({
 export const workItems: PortfolioCase[] = [
   {
     slug: "trabalho-1",
-    year: "Ano — Ano",
-    title: "Nome da empresa ou cliente",
+    year: "2024 — 2026",
+    title: "Rede Industrial",
     description:
-      "Descreva aqui a experiência, seu papel e principais contribuições no projeto.",
-    category: "Tipo de trabalho",
+      "Desenvolvedor Pleno em sistemas embarcados, telemetria e integrações entre dispositivos, APIs e aplicações web.",
+    category: "DESENVOLVEDOR PLENO",
     detail: defaultDetail("trabalho"),
   },
   {
     slug: "trabalho-2",
-    year: "Ano — Ano",
-    title: "Nome da empresa ou cliente",
+    year: "2023 — 2024",
+    title: "MW Automação",
     description:
-      "Descreva aqui a experiência, seu papel e principais contribuições no projeto.",
-    category: "Tipo de trabalho",
+      "Estagiário em desenvolvimento, atuando com ESP32 e suporte à manutenção de soluções embarcadas.",
+    category: "ESTÁGIO EM DESENVOLVIMENTO",
     detail: defaultDetail("trabalho"),
   },
-
+  {
+    slug: "trabalho-3",
+    year: "2026 — Atual",
+    title: "MW Automação",
+    description:
+      "Desenvolvedor Full Stack, atuando no desenvolvimento e na evolução de sistemas web e soluções embarcadas.",
+    category: "DESENVOLVEDOR FULL STACK",
+    detail: defaultDetail("trabalho"),
+  },
 ];
 
 export const projectItems: PortfolioCase[] = [
   {
     slug: "projeto-1",
-    year: "Ano",
-    title: "Nome do projeto",
+    year: "Projeto de destaque",
+    title: "Sigma SaaS",
     description:
-      "Descreva aqui o projeto, o problema resolvido, sua stack e o resultado.",
-    category: "Categoria",
+      "Modernização de uma aplicação legada em um sistema SaaS integrado a telemetria, dados, relatórios e fichas técnicas.",
+    category: "PROJETO DE DESTAQUE",
     detail: defaultDetail("projeto"),
   },
   {
     slug: "projeto-2",
-    year: "Ano",
-    title: "Nome do projeto",
+    year: "Projeto de destaque",
+    title: "ERP",
     description:
-      "Descreva aqui o projeto, o problema resolvido, sua stack e o resultado.",
-    category: "Categoria",
+      "Aplicação web para centralizar processos e informações empresariais, com integrações com WhatsApp e e-mail.",
+    category: "PROJETO DE DESTAQUE",
     detail: defaultDetail("projeto"),
   },
-
 ];
 
 export function getWorkItem(slug: string) {
