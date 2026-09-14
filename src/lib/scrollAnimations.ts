@@ -11,7 +11,6 @@ const TEXT_SELECTORS = [
   "main section[id] h2",
   "main section[id] .grid.items-start > p",
   "main section article h3",
-  "main section article p.text-sm",
 ];
 
 let scrollCtx: gsap.Context | null = null;
@@ -87,7 +86,8 @@ function getScrollTriggerBounds(element: HTMLElement) {
 function initStickyTextScroll() {
   const elements = gsap
     .utils.toArray<HTMLElement>(TEXT_SELECTORS.join(","))
-    .filter((element) => element.dataset.editable !== "intro.text");
+    .filter((element) => element.dataset.editable !== "intro.text")
+    .filter((element) => element.dataset.noScrollSplit !== "true");
 
   elements.forEach((element) => {
     const words = splitTextIntoWords(element);

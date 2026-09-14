@@ -74,7 +74,7 @@ export const workItems: PortfolioCase[] = [
     year: "2026 — Atual",
     title: "MW Automação",
     description:
-      "Desenvolvedor Full Stack, atuando no desenvolvimento e na evolução de sistemas web e soluções embarcadas.",
+      "Desenvolvedor Full Stack, atuando no desenvolvimento, manutenção e evolução de sistemas web, integrações e soluções embarcadas.",
     category: "DESENVOLVEDOR FULL STACK",
     detail: defaultDetail("trabalho"),
   },
@@ -86,7 +86,7 @@ export const projectItems: PortfolioCase[] = [
     year: "Projeto de destaque",
     title: "Sigma SaaS",
     description:
-      "Modernização de uma aplicação legada em um sistema SaaS integrado a telemetria, dados, relatórios e fichas técnicas.",
+      "Atuação na evolução e modernização de um sistema SaaS, com integração entre aplicação web, banco de dados e dispositivos de telemetria, incluindo geração de relatórios e fichas técnicas.",
     category: "PROJETO DE DESTAQUE",
     detail: defaultDetail("projeto"),
   },
@@ -95,7 +95,7 @@ export const projectItems: PortfolioCase[] = [
     year: "Projeto de destaque",
     title: "ERP",
     description:
-      "Aplicação web para centralizar processos e informações empresariais, com integrações com WhatsApp e e-mail.",
+      "Aplicação web de ERP para centralização de processos e informações empresariais, com gerenciamento de empresas, visão consolidada das operações e integrações com WhatsApp e e-mail.",
     category: "PROJETO DE DESTAQUE",
     detail: defaultDetail("projeto"),
   },

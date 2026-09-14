@@ -25,42 +25,80 @@ const skills = [
     items: "SaaS • ERP • Sistemas legados • Integrações • Automação",
   },
   {
+    key: "complementary",
+    title: "Conhecimentos complementares",
+    items: "Node.js • FastAPI • Flask • MySQL • PostgreSQL",
+  },
+  {
     key: "languages",
     title: "Idiomas",
-    items: "Português — nativo • Inglês — leitura e escrita técnica",
+    items: "Português — nativo\nInglês — leitura e escrita técnica",
   },
 ];
+
+function splitSkillItems(items: string): string[] {
+  return items
+    .replace(/\s*•\s*/g, "\n")
+    .replace(/\s*;\s*/g, "\n")
+    .replace(/\n+/g, "\n")
+    .split(/\n/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
 ---
 
 <section class="scroll-mt-32" id="skills">
   <Wrapper variant="standard" class="py-12 lg:py-24">
     <div class="grid grid-cols-1 items-start lg:grid-cols-4">
       <div class="lg:col-start-2">
-        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          Competências técnicas
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-base-600 dark:text-base-300"
+          data-editable="sections.skills.eyebrow"
+        >
+          {getContent("sections.skills.eyebrow", "Competências técnicas")}
         </Text>
       </div>
       <Text
         tag="h2"
         variant="textXL"
         class="font-semibold leading-snug tracking-tighter text-base-900 dark:text-white lg:col-span-2"
+        data-editable="sections.skills.title"
       >
-        Ferramentas e áreas de atuação
+        {getContent("sections.skills.title", "Ferramentas e áreas de atuação")}
       </Text>
     </div>
 
     <div class="mt-12 grid grid-cols-1 gap-0 border-t border-base-200 dark:border-base-800 lg:grid-cols-2">
       {
-        skills.map((skill) => (
-          <article class="border-b border-base-200 py-8 dark:border-base-800 lg:px-6 lg:first:pl-0 lg:nth-child(odd):pl-0 lg:nth-child(even):pr-0">
-            <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-              {skill.title}
-            </Text>
-            <Text tag="p" variant="textSM" class="mt-3 text-base-600 dark:text-base-300">
-              {skill.items}
-            </Text>
-          </article>
-        ))
+        skills.map((skill) => {
+          const itemText = getContent(`skills.${skill.key}.items`, skill.items);
+
+          return (
+            <article class="border-b border-base-200 py-8 dark:border-base-800 lg:px-6 lg:first:pl-0 lg:nth-child(odd):pl-0 lg:nth-child(even):pr-0">
+              <Text
+                tag="h3"
+                variant="textLG"
+                class="font-semibold text-base-900 dark:text-white"
+                data-editable={`skills.${skill.key}.title`}
+              >
+                {getContent(`skills.${skill.key}.title`, skill.title)}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="mt-3 text-base-600 dark:text-base-300"
+                data-editable={`skills.${skill.key}.items`}
+                data-no-scroll-split="true"
+              >
+                {splitSkillItems(itemText).map((item) => (
+                  <span class="block">{item}</span>
+                ))}
+              </Text>
+            </article>
+          );
+        })
       }
     </div>
   </Wrapper>
